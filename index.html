@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Новый Завет — Православное приложение</title>
+    <meta name="description" content="Православная Новый Завет для Android — 27 книг Нового Завета в 5 переводах, толкования, аудио, подборки книг, правило чтения и поминовения.">
+    <link rel="icon" type="image/png" href="icon.png">
+    <style>
+        :root {
+            --bg: #faf8f5;
+            --text: #2c2416;
+            --accent: #8b6914;
+            --accent-light: #c9a84c;
+            --card-bg: #ffffff;
+            --card-shadow: rgba(139, 105, 20, 0.08);
+            --section-bg: #f3efe8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        /* Hero */
+        .hero {
+            text-align: center;
+            padding: 60px 20px 40px;
+            background: linear-gradient(180deg, #f3efe8 0%, var(--bg) 100%);
+        }
+
+        .hero-banner {
+            display: block;
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto 32px;
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(139, 105, 20, 0.15);
+        }
+
+        .hero h1 {
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 8px;
+        }
+
+        .hero .subtitle {
+            font-size: 1.15rem;
+            color: #6b5c3e;
+            max-width: 600px;
+            margin: 0 auto 32px;
+        }
+
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--accent);
+            color: #fff;
+            text-decoration: none;
+            padding: 14px 36px;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: background 0.2s, transform 0.1s;
+            box-shadow: 0 4px 16px rgba(139, 105, 20, 0.25);
+        }
+
+        .download-btn:hover {
+            background: #a07a18;
+            transform: translateY(-1px);
+        }
+
+        .download-btn svg {
+            width: 22px;
+            height: 22px;
+        }
+
+        .version-info {
+            margin-top: 12px;
+            font-size: 0.85rem;
+            color: #9a8b6e;
+        }
+
+        /* Features */
+        .features {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .features h2 {
+            text-align: center;
+            font-size: 1.8rem;
+            margin-bottom: 32px;
+            color: var(--text);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 2px 12px var(--card-shadow);
+        }
+
+        .feature-card h3 {
+            font-size: 1.05rem;
+            margin-bottom: 6px;
+            color: var(--accent);
+        }
+
+        .feature-card p {
+            font-size: 0.92rem;
+            color: #5c4e36;
+        }
+
+        /* Screenshots */
+        .screenshots-section {
+            background: var(--section-bg);
+            padding: 50px 20px;
+        }
+
+        .screenshots-section h2 {
+            text-align: center;
+            font-size: 1.8rem;
+            margin-bottom: 32px;
+        }
+
+        .screenshots {
+            display: flex;
+            gap: 16px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            padding: 0 20px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .screenshots::-webkit-scrollbar {
+            height: 6px;
+        }
+
+        .screenshots::-webkit-scrollbar-thumb {
+            background: var(--accent-light);
+            border-radius: 3px;
+        }
+
+        .screenshot-item {
+            flex: 0 0 auto;
+            scroll-snap-align: center;
+            text-align: center;
+        }
+
+        .screenshot-item img {
+            width: 240px;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+        }
+
+        .screenshot-item .caption {
+            margin-top: 10px;
+            font-size: 0.85rem;
+            color: #6b5c3e;
+            font-weight: 500;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: #9a8b6e;
+            font-size: 0.85rem;
+        }
+
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1rem;
+            }
+
+            .screenshot-item img {
+                width: 200px;
+            }
+
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<section class="hero">
+    <img src="feature-graphic.png" alt="Новый Завет — чтение, толкования, аудио" class="hero-banner">
+    <a href="https://github.com/kostya29/psaltir-site/releases/latest/download/slovo-debug.apk" class="download-btn">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M5 20h14v-2H5v2zm7-18L5.33 8.67l1.41 1.41L11 5.83V16h2V5.83l4.26 4.25 1.41-1.41L12 2z" transform="rotate(180 12 12)"/></svg>
+        Скачать APK
+    </a>
+    <p class="version-info">Версия 2.3.30 &middot; Android 8.0+</p>
+</section>
+
+<section class="features">
+    <h2>Возможности</h2>
+    <div class="feature-grid">
+        <div class="feature-card">
+            <h3>Пять переводов</h3>
+            <p>Церковнославянский (традиционный и в привычном русском написании с ударениями), Синодальный с ударениями, перевод Юнгерова и греческая Септуагинта. Любой стих можно сразу увидеть во всех переводах рядом.</p>
+        </div>
+        <div class="feature-card">
+            <h3>Толкования святых отцов</h3>
+            <p>Под каждым псалмом — святоотеческое изъяснение и толкования от I до XX века: свт. Иоанн Златоуст, свт. Василий Великий, блж. Августин, прп. Ефрем Сирин, свт. Феофан Затворник, А.П. Лопухин и другие — всего более 78 авторов.</p>
+        </div>
+        <div class="feature-card">
+            <h3>Аудио книг</h3>
+            <p>Можно не только читать, но и слушать. Плеер работает при выключенном экране, не мешает листать другие разделы, сам останавливается через заданное время.</p>
+        </div>
+        <div class="feature-card">
+            <h3>Правило чтения</h3>
+            <p>Чтение Псалтири по кафизме в день — приложение само помнит, какая кафизма сегодня, и считает прочитанные круги.</p>
+        </div>
+        <div class="feature-card">
+            <h3>Напоминания о чтении</h3>
+            <p>Тихое напоминание не забыть о Псалтири — раз в день, в три дня, неделю или месяц, либо отдельно для дневного правила. В каждом уведомлении — слова святых отцов о силе псалмопения; кнопки сразу открывают чтение или включают аудио.</p>
+        </div>
+        <div class="feature-card">
+            <h3>Подборки книг</h3>
+            <p>Более 60 готовых подборок по наставлениям святых отцов и старинным молитвословам: покаянные, в скорби, при унынии, в болезнях, благодарственные и другие. Можно создавать свои.</p>
+        </div>
+        <div class="feature-card">
+            <h3>Закладки и заметки</h3>
+            <p>К любому стиху можно добавить закладку или личную заметку. Случайно удалили — всегда можно вернуть.</p>
+        </div>
+        <div class="feature-card">
+            <h3>Навигация по сетке</h3>
+            <p>Экран чтения делится на зоны: одно касание слева или справа листает страницу и переходит к следующей Славе на границе, верх и низ центра прокручивают страницу, центр включает полноэкранный режим. Удобно читать одной рукой.</p>
+        </div>
+        <div class="feature-card">
+            <h3>Помянники</h3>
+            <p>Имена о здравии и об упокоении читаются сами после каждой славы. Можно завести несколько помянников — например, «Родные», «Крёстные», «Приход».</p>
+        </div>
+        <div class="feature-card">
+            <h3>Заупокойная Новый Завет</h3>
+            <p>Отдельный режим чтения об усопших — со всеми положенными молитвами: Псалом 90, тропарь «Глубиною мудрости», поминовение имён между каждой славой, тропари покойные глас 4 и заупокойный отпуст. Текст и аудио на церковнославянском или русском.</p>
+        </div>
+        <div class="feature-card">
+            <h3>Поиск</h3>
+            <p>Один поиск по всему: стихам всех переводов, толкованиям, святоотеческим изъяснениям и подборкам. Находит нужное, даже если набрали без ударений.</p>
+        </div>
+        <div class="feature-card">
+            <h3>Переносы по слогам</h3>
+            <p>Длинные слова не уходят целиком на новую строку, а аккуратно разбиваются по слогам с дефисом — как в книге. Работает в церковнославянских и русских переводах.</p>
+        </div>
+        <div class="feature-card">
+            <h3>Удобное оформление</h3>
+            <p>Семь тем на любой вкус: светлая, тёмная, сепия, глубокая чёрная (бережёт заряд), тема под обои телефона и своя собственная. Десять шрифтов, настройка размера букв и расстояния между строками.</p>
+        </div>
+    </div>
+</section>
+
+<section class="screenshots-section">
+    <h2>Скриншоты</h2>
+    <div class="screenshots">
+        <div class="screenshot-item">
+            <img src="screenshots/01_home.jpg" alt="Главный экран" loading="lazy">
+            <div class="caption">Главный экран</div>
+        </div>
+        <div class="screenshot-item">
+            <img src="screenshots/03_reader.jpg" alt="Чтение книг" loading="lazy">
+            <div class="caption">Чтение книг</div>
+        </div>
+        <div class="screenshot-item">
+            <img src="screenshots/02_audio.jpg" alt="Аудио плеер" loading="lazy">
+            <div class="caption">Аудио плеер</div>
+        </div>
+        <div class="screenshot-item">
+            <img src="screenshots/07_search.jpg" alt="Поиск" loading="lazy">
+            <div class="caption">Поиск</div>
+        </div>
+        <div class="screenshot-item">
+            <img src="screenshots/08_verse_menu.jpg" alt="Контекстное меню стиха" loading="lazy">
+            <div class="caption">Меню стиха</div>
+        </div>
+        <div class="screenshot-item">
+            <img src="screenshots/06_collections.jpg" alt="Подборки книг" loading="lazy">
+            <div class="caption">Подборки</div>
+        </div>
+        <div class="screenshot-item">
+            <img src="screenshots/05_settings.jpg" alt="Настройки" loading="lazy">
+            <div class="caption">Настройки</div>
+        </div>
+        <div class="screenshot-item">
+            <img src="screenshots/04_synodiks.jpg" alt="Помянники" loading="lazy">
+            <div class="caption">Помянники</div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2024&ndash;2026 Новый Завет &middot; <a href="https://github.com/kostya29/psaltir-site/releases">Все версии</a> &middot; <a href="privacy.html">Политика конфиденциальности</a></p>
+</footer>
+
+</body>
+</html>
